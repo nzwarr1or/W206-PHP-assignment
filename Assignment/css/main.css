@@ -1,0 +1,149 @@
+.container {
+	
+	width: 60%;
+
+}
+
+h1 {
+
+	font-size: 2em;
+	color:#fff;
+	
+}
+
+
+form {
+
+	margin-top: 3%;
+}
+
+#submit {
+
+	margin-top: 100px;
+
+}
+
+#submit button {
+
+	background-color: #eb222c;
+
+}
+
+#marvel-banner {
+
+	background-color: #eb222c;
+	margin-top: 0px;
+
+}
+
+#marvel-banner img {
+
+	width: 25%;
+	margin: 50px 0;
+
+}
+
+.btn-large {
+
+	width: 270px;
+	height: 50px;
+	font-size: .9em;
+}
+
+#splash {
+
+	
+	background-size: cover;
+	background-image: url('../img/splash.jpg');
+}
+
+#splash button{
+
+	border: 3px solid #fff;
+	border-radius: 20px;
+	background-color: transparent;
+	font: 1.3em 'Raleway', sans-serif;
+	margin: 400px 0 50px 0;
+	padding: 10px 30px;
+	color: #eee;
+	-webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: .7s;
+}
+
+a {
+
+	color: #eee;
+
+}
+
+#splash button.button:hover {
+
+	color: #eee;
+	background-color:rgba(235, 34, 44, .3);
+}
+
+#bg {
+
+	/**background-image: url('../img/the-avengers.jpg');
+	background-blend-mode: screen;
+	background-repeat: no-repeat;
+	background-size: cover;**/
+	background-color: #fff;
+
+}
+
+input, textarea{
+
+	color: #aaa;
+
+}
+
+
+.arrows {
+	width: 60px;
+	height: 75px;
+	margin-bottom: 50px;
+	
+}
+
+.arrows path {
+	stroke: #eee;
+	fill: transparent;
+	stroke-width: 3px;	
+	animation: arrow 2s infinite;
+	-webkit-animation: arrow 2s infinite; 
+}
+
+@keyframes arrow
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+.arrows path.a1 {
+	animation-delay:-1s;
+	-webkit-animation-delay:-1s; /* Safari 和 Chrome */
+}
+
+.arrows path.a2 {
+	animation-delay:-0.5s;
+	-webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+}
+
+.arrows path.a3 {	
+	animation-delay:0s;
+	-webkit-animation-delay:0s; /* Safari 和 Chrome */
+}
+
+
+
