@@ -38,98 +38,118 @@ $(document).ready(function(){
 });
 
 
-// Check name has more than two characters and a space between names
+
+// Validation of users input
+
+var submit = document.getElementById('submit');
+submit.addEventListener("click", validateInput);
+
+function validateInput () {
+
+  checkname();
+  checkaddress();
+  checkEmail();
+  checkDateOfBirth();
+  checkAge();
+  checkGender();
+  checkMovie();
+
+}
+
+
+// Check name has less than 40 characters
 function checkName() {
 
   name = document.getElementById('name').value;
     
-  if (name == "" || name.indexOf >40) {
-  
-  document.getElementById('nameCheck').innerHTML = "Required field - Name must be under 40 characters";
-  
-  return false;
-
+  if (name == "") {
+    document.getElementById('nameCheck').innerHTML = "Required field";
   }
 
-return true;
-
+  else if (name.length > 40) {
+    document.getElementById('nameCheck').innerHTML = "Maximum characters is 40";
+  }
 }
 
 
-// Check address
-
+// Check address is present and has less than 200 characters
 function checkaddress() {
 
   address = document.getElementById('address').value;
     
-  if (address == "" || address.indexOf >200) {
-  
-  document.getElementById('addressCheck').innerHTML = "Required field - Address must be under 200 characters";
-  
-  return false;
-
+  if (address == "") {
+    document.getElementById('addressCheck').innerHTML = "Required field";
   }
 
-return true;
-
+  else if (address.length > 200) {
+    document.getElementById('addressCheck').innerHTML = "Maximum characters is 200";
+  }
 }
 
 
+// Check email address is present, valid and has less than 100 characters
+function checkEmail() {
 
-function checkage() {
+  var email = document.getElementById('email').value;
+  var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
-  age = document.getElementById('age');
-    
-  if (age == "" || age <150) {
-  
-  document.getElementById('ageCheck').innerHTML = "Required field - You are too old to be on the the internet";
-  
-  return false;
-
+  if (email == "") {
+    document.getElementById('emailCheck').innerHTML = "Required field";
   }
 
-return true;
+  else if (email.length > 100) {
+    document.getElementById('emailCheck').innerHTML = "Maximum characters is 100";
+  }
+
+  else if (!filter.test(email)) {
+    document.getElementById('emailCheck').innerHTML = "Please re-enter a vaild email address";
+  }
+}
 
 
+function checkAge() {
 
-function checkDateOfBirth() {
-
-  dateOfBirth = document.getElementById('dateOfBirth').value;
+  age = document.getElementById('age').value;
     
-  if () {
+  if (age == "" ) {
+    document.getElementById('ageCheck').innerHTML = "Required field";
+  }
+
+  else if (age >150) {
+    document.getElementById('ageCheck').innerHTML = "You are too old to be on the internet!";    
+  }
+}
+
+/** function checkDateOfBirth()
+
+{ 
+  dateOfBirth = document.getElementById('dateOfBirth').value;
+  
+  if 
   
   document.getElementById('dateOfBirthCheck').innerHTML = "Required field";
   
   return false;
-
   }
 
 return true;
+}
 
-
+**/
 
 function checkGender() {
 
-  gender = document.getElementById('gender');
+  gender = document.getElementBy('gender');
     
-  if (gender ) {
-  
-  document.getElementById('genderCheck').innerHTML = "Required field";
-  
-  return false;
+  if (('male').checked || ('female').checked) {  
+    
 
   }
 
-return true;
-
-
-
-
-
-
-
-
 }
+
+
+
 
 
 
@@ -148,22 +168,7 @@ $(document).ready(function(){
 
 
 
-function checkEmail() {
 
-  var email = document.getElementById('email');
-  var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-
-  if (!filter.test(email.value)) {
-  
-  document.getElementById('emailerror').innerHTML = "Please re-enter a <span>VALID</span> email address";
-    
-  return false;
-
-  }
-
-return true;
-
-}
 
 
 // Validate age

@@ -5,7 +5,7 @@ require 'includes/functions.php';
 ?>
 
 
-  
+<!-- Main Header image w/ nav button and arrow -->
 <div class="row center" id="splash">
   <a href="#form"><button class="button center">Go to form</button></a><br>
   <svg class="arrows">
@@ -15,10 +15,8 @@ require 'includes/functions.php';
   </svg>
 </div>
 
-
+<!-- Marvel Banner -->
 <div class="center" id="marvel-banner"><img src="img/marvel-banner.jpg"></div>
-
-
 
 
 <!-- Outer Div for background -->
@@ -44,7 +42,7 @@ require 'includes/functions.php';
       <!-- Address div -->
       <div class="row">
         <div class="input-field col s12 m6 l6">
-          <textarea type="text" name="address" placeholder="Enter your address" class="materialize-textarea"></textarea><br>
+          <textarea type="text" name="address" placeholder="Enter your address" class="materialize-textarea"></textarea>
           <label for="address" class="active">Address</label>
         </div>
         <div class="input-field col s12 m4 l4" id="address-check">
@@ -56,10 +54,10 @@ require 'includes/functions.php';
         <div class="col s12 m6 l6">
           <div class="input-field">
             <input id="email" type="email" class="validate">
-            <label for="email" data-error="wrong" data-success="right" class="active">Email</label>
+            <label for="email" data-error="wrong" data-success="right" class="active">Email</label>            
+            </div>
+            <div class="col s12 m4 l4" id="email-check">
           </div>
-          <div class="input-field col s12 m4 l4" id="email-check">
-        </div>
         </div>
       </div><!-- end Email div -->
 
