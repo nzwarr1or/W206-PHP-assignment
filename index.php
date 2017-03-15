@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   // The request is using the POST method
   // This is where you will call your validation code
-  dd($_POST);
+  //dd($_POST);
 }
 
 // HTML

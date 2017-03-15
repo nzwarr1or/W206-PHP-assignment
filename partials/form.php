@@ -27,12 +27,12 @@ require 'includes/functions.php';
 
     <!-- Form begins here -->
     <div class="row">
-      <form class="col s12 offset-m2 m10 offset-l2 l10" id="form">
+      <form onsubmit="return validate()" class="col s12 offset-m2 m10 offset-l2 l10" id="form">
 
       <!-- Name div -->
       <div class="row">
         <div class="input-field col s12 m6 l6">
-          <input type="text" class="validate">
+          <input id="name" type="text" class="validate">
           <label for="name" class="active">Name</label>
         </div>
         <div class="input-field col s12 m4 l4" id="nameCheck">
@@ -75,7 +75,7 @@ require 'includes/functions.php';
         <div class="input-field col s2 m2 l2">
           <input type="text" class="validate" id="date">
           <label for="last_name" class="active">Age</label>
-          <button onclick="validateDate()">Check</button>
+         
         </div>
         <div class="input-field col s2 m4 l4" id="age-check">
         </div>
@@ -114,15 +114,17 @@ require 'includes/functions.php';
         <div class="col s12 m6 l6">
         <div class="input-field col s12 m6 l6" id="movie">
 
-        <!-- Modal Trigger -->
+       <!-- 
         <a class="waves-effect waves-light btn-large" href="#movies">Pick your favourite movie</a>
 
         <div id="movies" class="modal modal-fixed-footer">
           <div class="modal-content">
             <h5 class="center">Select your favourite Marvel movie</h5>
 
+
+
             
-            <form>
+             <form>
             <div class="row">
             <div class="col s6 m6 l6">
               <label><img src="img/movie-img/captain-america-the-first-avenger.jpg"></label>
@@ -140,14 +142,14 @@ require 'includes/functions.php';
 
               </div>
               </div>
-            <form>
+            <form> 
 
           </div>
           <div class="modal-footer">
             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat"><button type="submit">OK</button></a>
           </div>
         </div>
-      </div>
+      </div>-->
     
       <input type="text" class="validate">
           <label for="movie" class="active">Movie</label>
@@ -164,7 +166,7 @@ require 'includes/functions.php';
 
 
       <!-- submit button -->
-      <div class="row center" id="submit">
+      <div class="row center">
         <div class="col s12">
           <button class="waves-effect waves-light btn" type="submit">Submit</button>
       </div>

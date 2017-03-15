@@ -41,18 +41,31 @@ $(document).ready(function(){
 
 // Validation of users input
 
-var submit = document.getElementById('submit');
-submit.addEventListener("click", validateInput);
 
-function validateInput () {
 
-  checkname();
-  checkaddress();
-  checkEmail();
-  checkDateOfBirth();
-  checkAge();
-  checkGender();
-  checkMovie();
+function validate() {
+
+  
+  var nameError = checkName();
+  // alert(nameError);
+
+  // checkAddress();
+
+  // checkEmail();
+
+  // checkDateOfBirth();
+
+  // checkAge();
+
+  // checkGender();
+
+  // checkMovie();
+
+  if(nameError){
+    return true;
+  }
+
+  return false;
 
 }
 
@@ -64,16 +77,18 @@ function checkName() {
     
   if (name == "") {
     document.getElementById('nameCheck').innerHTML = "Required field";
+    return false;
   }
-
   else if (name.length > 40) {
     document.getElementById('nameCheck').innerHTML = "Maximum characters is 40";
+    return false;
   }
+  return true;
 }
 
 
 // Check address is present and has less than 200 characters
-function checkaddress() {
+function checkAddress() {
 
   address = document.getElementById('address').value;
     
@@ -84,6 +99,8 @@ function checkaddress() {
   else if (address.length > 200) {
     document.getElementById('addressCheck').innerHTML = "Maximum characters is 200";
   }
+
+
 }
 
 
