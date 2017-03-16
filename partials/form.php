@@ -30,24 +30,15 @@ require 'includes/functions.php';
       <form method="POST" action="index.php#form" onsubmit="return validate()" class="col s12 offset-m2 m10 offset-l2 l10"  id="form">
 
 
-
-
       <!-- Name div -->
       <div class="row">
         <div class="input-field col s12 m6 l6">
           <i class="material-icons prefix">account_circle</i>
-
           <input id="name" type="text"  data-length="40">
           <label for="name" class="active">Name</label>
         </div>
-        <div class="input-field col s12 m4 l4" id="nameCheck">
-        </div>
+        <div class="input-field col s12 m4 l4" id="nameMsg"></div>
       </div><!-- end Name div -->
-
-
-
-
-
 
 
       <!-- Address div -->
@@ -57,9 +48,9 @@ require 'includes/functions.php';
           <textarea type="text" id="address" name="address" placeholder="Enter your address" class="materialize-textarea" data-length="200"></textarea>
           <label for="address" class="active">Address</label>
         </div>
-        <div class="input-field col s12 m4 l4" id="addressCheck">
-        </div>
+        <div class="input-field col s12 m4 l4" id="addressMsg"></div>
       </div><!-- end Address div -->
+
       
       <!-- Email div -->
       <div class="row">
@@ -67,20 +58,21 @@ require 'includes/functions.php';
           <i class="material-icons prefix">email_circle</i>
             <input id="email" type="email"  class="validate" data-length="100">
             <label for="email" data-error="wrong" data-success="right" class="active">Email</label>
-            </div>
-            <div class="col s12 m4 l4" id="emailCheck">
-          </div>
         </div>
+        <div class="col s12 m4 l4" id="emailMsg"></div>
       </div><!-- end Email div -->
+
 
       <!-- DOB div -->
       <div class="row">
-        <div class="col s6 m6 l6">
-
+        <div class="input-field col s6 m6 l6">
+          <i class="material-icons prefix">perm_contact_calendar</i>
+          <input type="date" name="dob" class="input-field datepicker" id="dateOfBirth" placeholder="Enter your Date of Birth">
           <label for="dob">Date of birth</label>
-          <input type="date" name="dob" class="input-field datepicker" id="dateOfBirth">          
         </div>
+        <div class="col s12 m4 l4" id="dateOfBirthMsg"></div>
       </div><!-- end DOB div -->
+
 
       <!-- Age div -->
       <div class="row">
@@ -88,41 +80,37 @@ require 'includes/functions.php';
           <input type="text" class="validate" id="age">
           <label for="last_name" class="active">Age</label>
         </div>
-        <div class="input-field col s2 m4 l4" id="age-check">
+        <div class="input-field col s2 m4 l4" id="ageMsg">
         </div>
       </div><!-- end Age div -->
+
 
       <!-- Gender div -->
       <div class="row">
         <div class="col s12 m4 l2">
-
+        <!-- Male radio button -->
           <input class="with-gap" name="gender" type="radio" id="male">
           <label for="male">Male</label>
           
         </div>
 
         <div class="col s12 m4 l2">
-          
+          <!-- Female radio button -->
           <input class="with-gap" name="gender" type="radio" id="female">
           <label for="female">Female</label>
-          
         </div>
 
         <div class="col s12 m4 l2">
-          
+          <!-- Other gender radio button -->
           <input class="with-gap" name="gender" type="radio" id="other">
           <label for="other">Other</label>
-          
         </div>
-
-        <div class="input-field col s2 m4 l4" id="gender">
-        </div>
+        <div class="input-field col s12 m4 l4" id="genderMsg"></div>
       </div><!-- end Gender div -->
 
 
       <!-- Favourite Movie div -->
-      <!-- Modal Trigger -->
-      
+          
           <div class="row">
             <div class="col s12 m6 l6">
               <div class="input-field col s12 m6 l6" id="movie">
@@ -139,11 +127,13 @@ require 'includes/functions.php';
                   <option><img src="img/movie-img/spider-man.jpg"></option>
                   <option><img src="img/movie-img/x-men-2.jpg"></option>
                   <option><img src="img/movie-img/the-avengers.jpg"></option>
-                  <option>thor<img src="../img/movie-img/thor.jpg"></option>
+                  <option>thor<img src="img/movie-img/thor.jpg"></option>
                 </select>
 
               </div>
-            </div>             
+            </div>
+            <div class="input-field col s2 m4 l4" id="movieMsg">
+            </div>
           </div>
 
           

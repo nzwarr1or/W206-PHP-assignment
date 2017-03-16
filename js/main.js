@@ -12,9 +12,9 @@
     });
 
 
-// $(document).ready(function(){
-//     $('.parallax').parallax();
-// });
+$(document).ready(function(){
+  $('.parallax').parallax();
+});
 
 
 // Smooth scrolling feature
@@ -47,7 +47,6 @@ $(document).ready(function(){
 
 // Validation of users input
 function validate() {
-
   
   var nameError = checkName();
   var addressError = checkAddress();
@@ -153,36 +152,51 @@ function checkDateOfBirth() {
 
 function checkGender() {
 
-  gender = document.getElementBy('gender');
-  if (('male').checked || ('female').checked) { 
+  var isMaleChecked = document.getElementByID('male').checked;
+  var isFemaleChecked = document.getElementByID('female').checked;
+  var isOtherChecked = document.getElementByID('other').checked;
+
+  genderError="";
+
+  if (!isMaleChecked && !isfemaleChecked && !isOtherChecked) { 
+    
+    document.getElementById('genderMsg').innerHTML = "[JS] Please select a gender";
+    return false;
+    }
+    document.getElementById('genderMsg').innerHTML = "";
+  return true;
+}
+
+
+function checkMovie() {
+ 
+  movie = document.getElementById('movie').value;
+  
+  if (movie == "") {
+    document.getElementById('movieMsg').innerHTML = "Required field";
     return false;
   }
   return true;
 }
 
-$(document).ready(function(){
-   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-   $('.modal').modal();
- });
-
 // Validate age
 
-function getAge(dateString) {
-    var today = new Date();
-    var birthDate = new Date(dateString);
-    var age = today.getFullYear() - birthDate.getFullYear();
-    var m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-    }
-    return age;
-}
+// function getAge(dateString) {
+//     var today = new Date();
+//     var birthDate = new Date(dateString);
+//     var age = today.getFullYear() - birthDate.getFullYear();
+//     var m = today.getMonth() - birthDate.getMonth();
+//     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+//         age--;
+//     }
+//     return age;
+// }
 
 
-function validateDate() {
-    var dob = document.getElementById('date');
-    document.getElementById('ageOutput').innerHTML = getAge(dob.value);
-}
+// function validateDate() {
+//     var dob = document.getElementById('date');
+//     document.getElementById('ageOutput').innerHTML = getAge(dob.value);
+// }
 
 $(document).ready(function() {
     $('select').material_select();
