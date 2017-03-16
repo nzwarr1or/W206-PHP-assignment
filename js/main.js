@@ -1,13 +1,20 @@
 // Date Picker function for calendar
 
-$('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 240, // Creates a dropdown of 15 years to control year
-});
+    var today = new Date();
 
-$(document).ready(function(){
-    $('.parallax').parallax();
-});
+    today.setFullYear( today.getFullYear() - 150 );
+    $('.datepicker').pickadate(
+    {
+      selectMonths: true,
+      selectYears: 150,
+      min: today,
+      max: new Date()
+    });
+
+
+// $(document).ready(function(){
+//     $('.parallax').parallax();
+// });
 
 
 // Smooth scrolling feature
@@ -38,35 +45,22 @@ $(document).ready(function(){
 });
 
 
-
 // Validation of users input
-
-
-
 function validate() {
 
   
   var nameError = checkName();
-  // alert(nameError);
+  var addressError = checkAddress();
+  var emailError = checkEmail();
+  var dateOfBirthError = checkDateOfBirth();
+  var ageError = checkAge();
+  var genderError = checkGender();
+  var movieError = checkMovie();
 
-  // checkAddress();
-
-  // checkEmail();
-
-  // checkDateOfBirth();
-
-  // checkAge();
-
-  // checkGender();
-
-  // checkMovie();
-
-  if(nameError){
+  if(nameError && addressError && emailError && dateOfBirthError && ageError && genderError && movieError){
     return true;
   }
-
   return false;
-
 }
 
 
@@ -76,11 +70,11 @@ function checkName() {
   name = document.getElementById('name').value;
     
   if (name == "") {
-    document.getElementById('nameCheck').innerHTML = "Required field";
+    document.getElementById('nameMsg').innerHTML = "Required field";
     return false;
   }
   else if (name.length > 40) {
-    document.getElementById('nameCheck').innerHTML = "Maximum characters is 40";
+    document.getElementById('nameMsg').innerHTML = "Maximum characters is 40";
     return false;
   }
   return true;
@@ -93,14 +87,15 @@ function checkAddress() {
   address = document.getElementById('address').value;
     
   if (address == "") {
-    document.getElementById('addressCheck').innerHTML = "Required field";
+    document.getElementById('addressMsg').innerHTML = "Required field";
+    return false;
   }
 
   else if (address.length > 200) {
-    document.getElementById('addressCheck').innerHTML = "Maximum characters is 200";
+    document.getElementById('addressMsg').innerHTML = "Maximum characters is 200";
+    return false;
   }
-
-
+  return true;
 }
 
 
@@ -111,16 +106,20 @@ function checkEmail() {
   var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
   if (email == "") {
-    document.getElementById('emailCheck').innerHTML = "Required field";
+    document.getElementById('emailMsg').innerHTML = "Required field";
+    return false;
   }
 
   else if (email.length > 100) {
-    document.getElementById('emailCheck').innerHTML = "Maximum characters is 100";
+    document.getElementById('emailMsg').innerHTML = "Maximum characters is 100";
+    return false;
   }
 
   else if (!filter.test(email)) {
-    document.getElementById('emailCheck').innerHTML = "Please re-enter a vaild email address";
+    document.getElementById('emailMsg').innerHTML = "Please re-enter a vaild email address";
+    return false;
   }
+  return true;
 }
 
 
@@ -128,65 +127,43 @@ function checkAge() {
 
   age = document.getElementById('age').value;
     
-  if (age == "" ) {
-    document.getElementById('ageCheck').innerHTML = "Required field";
+  if (age == "") {
+    document.getElementById('ageMsg').innerHTML = "Required field";
+    return false;
   }
 
   else if (age >150) {
-    document.getElementById('ageCheck').innerHTML = "You are too old to be on the internet!";    
+    document.getElementById('ageMsg').innerHTML = "You are too old to be on the internet!";    
+    return false;
   }
+  return true;
 }
 
-/** function checkDateOfBirth()
-
-{ 
+function checkDateOfBirth() {
+ 
   dateOfBirth = document.getElementById('dateOfBirth').value;
   
-  if 
-  
-  document.getElementById('dateOfBirthCheck').innerHTML = "Required field";
-  
-  return false;
+  if (dateOfBirth == "") {
+    document.getElementById('dateOfBirthMsg').innerHTML = "Required field";
+    return false;
   }
-
-return true;
+  return true;
 }
 
-**/
 
 function checkGender() {
 
   gender = document.getElementBy('gender');
-    
-  if (('male').checked || ('female').checked) {  
-    
-
+  if (('male').checked || ('female').checked) { 
+    return false;
   }
-
+  return true;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-// Modal function
 $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal').modal();
-});
-
-
-
-
-
+   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+   $('.modal').modal();
+ });
 
 // Validate age
 
@@ -206,3 +183,7 @@ function validateDate() {
     var dob = document.getElementById('date');
     document.getElementById('ageOutput').innerHTML = getAge(dob.value);
 }
+
+$(document).ready(function() {
+    $('select').material_select();
+  });
