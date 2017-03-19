@@ -1,108 +1,101 @@
+/*Containers*/
+
 .container {
-	
-	width: 60%;
-
+	width: 90%;
 }
 
-h1 {
+#content {
+	padding: 100px 0px; 
+}
 
-	font-size: 2em;
-	color:#fff;
-	
+.parallax-container {
+    height: 1000px;
+}
+
+#bg {
+	background-color: #fff;
 }
 
 
-form {
-
-	margin-top: 3%;
-}
-
-#submit {
-
-	margin-top: 100px;
-
-}
-
-#submit button {
-
-	background-color: #eb222c;
-
-}
+/*Header Features*/
 
 #marvel-banner {
-
 	background-color: #eb222c;
-	margin-top: 0px;
-
 }
 
 #marvel-banner img {
-
 	width: 25%;
-	margin: 50px 0;
+	margin: 50px 0px;
+}
+
+#title {
+	visibility: hidden; 
+	position: relative;
+	margin-top: 300px;
+    z-index: 2;
+	color: #fff;
+}
+
+h3:hover {
+	color: #eb222c;
+	-webkit-transition-duration: 0.8s; /* Safari */
+    transition-duration: .8s;
+}
+
+
+/*Form*/
+
+input, textarea{
+	color: #aaa;
+}
+
+form {
 
 }
 
-.btn-large {
 
-	width: 270px;
-	height: 50px;
-	font-size: .9em;
-}
+/*Buttons*/
 
-#splash {
-
-	background-size: cover;
-	background-image: url('../img/splash.jpg');
-}
-
-#splash button{
-
+button.banner{
 	border: 3px solid #fff;
-	border-radius: 20px;
+	border-radius: 50px;
 	background-color: transparent;
 	font: 1.3em 'Raleway', sans-serif;
-	margin: 400px 0 50px 0;
+	margin: 50px 0 50px 0;
 	padding: 10px 30px;
 	color: #eee;
 	-webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: .7s;
 }
 
-a {
-
-	color: #eee;
-
-}
-
-#splash button.button:hover {
-
-	color: #eee;
-	background-color:rgba(235, 34, 44, .3);
-}
-
-#bg {
-
-	/**background-image: url('../img/the-avengers.jpg');
-	background-blend-mode: screen;
-	background-repeat: no-repeat;
-	background-size: cover;**/
-	background-color: #fff;
-
-}
-
-input, textarea{
-
-	color: #aaa;
-
+button.banner:hover {
+	background-color:rgba(235, 34, 44, .4);
 }
 
 
+/*Features*/
+
+/*Video Background*/
+video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+  	transition: 1s opacity;
+}
+
+
+/*Animated arrow*/
 .arrows {
 	width: 60px;
 	height: 75px;
 	margin-bottom: 50px;
-	
 }
 
 .arrows path {
@@ -113,33 +106,48 @@ input, textarea{
 	-webkit-animation: arrow 2s infinite; 
 }
 
-@keyframes arrow
-{
-0% {opacity:0}
-40% {opacity:1}
-80% {opacity:0}
-100% {opacity:0}
+@keyframes arrow {
+	0% {opacity:0}
+	40% {opacity:1}
+	80% {opacity:0}
+	100% {opacity:0}
 }
 
-@-webkit-keyframes arrow /*Safari and Chrome*/
-{
-0% {opacity:0}
-40% {opacity:1}
-80% {opacity:0}
-100% {opacity:0}
+/*Safari and Chrome*/
+@-webkit-keyframes arrow { 
+	0% {opacity:0}
+	40% {opacity:1}
+	80% {opacity:0}
+	100% {opacity:0}
 }
 
 .arrows path.a1 {
 	animation-delay:-1s;
 	-webkit-animation-delay:-1s; /* Safari 和 Chrome */
 }
-
 .arrows path.a2 {
 	animation-delay:-0.5s;
 	-webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
 }
-
 .arrows path.a3 {	
 	animation-delay:0s;
 	-webkit-animation-delay:0s; /* Safari 和 Chrome */
+}
+
+
+/*Error message*/
+.error {
+	color: #F00F05;
+}
+
+/*Icons*/
+.prefix {
+	color: red;
+}
+
+/*Media Queries*/
+@media screen and (max-width: 1000px) {
+    .container {
+        width: 90%;
+    }
 }
