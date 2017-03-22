@@ -14,8 +14,7 @@ function validate() {
   if(nameError && addressError && emailError && dateOfBirthError && ageError && genderError && movieError){
     
     document.getElementById("form").submit();
-    document.getElementById("form").reset();
-    
+        
     return true;
   }
   return false;
@@ -89,7 +88,7 @@ function checkEmail() {
 
 function checkDateOfBirth() {
   // Set variables
-  var dateOfBirth = document.getElementById('dateOfBirth').value;
+  var dateOfBirth = document.getElementById('date').value;
   // Check user has entered a value
   if (dateOfBirth == "") {
     document.getElementById('dateOfBirthMsg').innerHTML = "[JS]Required field";
@@ -196,13 +195,13 @@ function resetForm() {
   $('select').material_select('destroy');
   $('select').material_select();
 
-  clearName()
-  clearAddress()
-  clearEmail()
-  clearDateOfBirth()
-  clearAge()
-  clearGender()
-  clearMovie()
+  clearName();
+  clearAddress();
+  clearEmail();
+  clearDateOfBirth();
+  clearAge();
+  clearGender();
+  clearMovie();
 }
 
 

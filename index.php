@@ -8,7 +8,7 @@ $error = [];
 
 //The request is using the POST method
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
+	
 	// Add data from form
 	$name = $_POST['name'];
 	$address = $_POST['address'];
@@ -25,13 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	$error['date'] = validDateOfBirth($date);
 	$error['age'] = validAge($age);
 	$error['gender'] = validGender($gender);
-	$error['movies'] = validMovie($movies);
+	$error['movie'] = validMovie($movies);
 
 	//redirect to Thanks page
-	if (!$error['name'] && !$error['address'] && !$error['email'] && !$error['age'] && !$error['date'] && !$error['movies'] && !$error['gender']) {
+	if (!$error['name'] && !$error['address'] && !$error['email'] && !$error['age'] && !$error['date'] && !$error['movie'] && !$error['gender']) {
 
-	header("Location: partials/thanks.php");
-
+	require 'partials/thanks.php';
+	die();
 	}
 
 }

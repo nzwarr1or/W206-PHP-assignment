@@ -191,12 +191,9 @@ function validGender($gender) {
 
 //      ***** Check Movie Validation *****
 
-function validMovie() {
+function validMovie($movies) {
 
-  
-
-   if (empty($movie)) {
-
+   if(empty($movies)) {
     return "[PHP]Select a movie from the dropdown list";
     }
   return false;
