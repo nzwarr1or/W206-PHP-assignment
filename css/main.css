@@ -5,17 +5,17 @@
 }
 
 #content {
-	padding: 100px 0px; 
+	padding: 20px;
+
 }
 
 .parallax-container {
-    height: 1000px;
+    height: 600px;
 }
 
 #bg {
 	background-color: #fff;
 }
-
 
 /*Header Features*/
 
@@ -31,9 +31,14 @@
 #title {
 	visibility: hidden; 
 	position: relative;
-	margin-top: 300px;
+	margin-top: 220px;
+	margin-bottom: 300px;
     z-index: 2;
 	color: #fff;
+}
+
+h1 {
+	font-family: 'Bangers', cursive;
 }
 
 h3:hover {
@@ -46,18 +51,14 @@ h3:hover {
 /*Form*/
 
 input, textarea{
-	color: #aaa;
-}
-
-form {
-
+	color: #999;
 }
 
 
 /*Buttons*/
 
 button.banner{
-	border: 3px solid #fff;
+	border: 2px double #fff;
 	border-radius: 50px;
 	background-color: transparent;
 	font: 1.3em 'Raleway', sans-serif;
@@ -95,7 +96,7 @@ video {
 .arrows {
 	width: 60px;
 	height: 75px;
-	margin-bottom: 50px;
+	margin-bottom: 80px;
 }
 
 .arrows path {
@@ -146,8 +147,35 @@ video {
 }
 
 /*Media Queries*/
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 760px) {
     .container {
         width: 90%;
     }
+
+    video {
+
+    	display: none;
+    }
+
+    #title {
+    	display: none;
+    } 
+
+    .parallax-container {
+    	display: none;
+    }
+}
+
+#thanks {
+
+	background-image: url('../img/thanks.jpg');
+	width: 100%;
+	background-repeat: no-repeat;
+  	position: fixed;
+  	top: 0;
+  	left: 0;
+  	bottom: 0;
+  	right: 0;
+  	overflow: auto;
+	
 }

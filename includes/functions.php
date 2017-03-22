@@ -1,6 +1,6 @@
 <?php
 
- //All functions are called from this page
+// //All functions are called from this page
 
 function dd($data) {
     die(var_dump($data));
@@ -168,7 +168,7 @@ function validAge($age) {
     return "[PHP]Go back to the future!";
   }
   // Check the age entered is less than 150 years
-  else if (($age) > 150) {
+  elseif (($age) > 150) {
     // Return a message with character limits    
     return "[PHP]You are too old to be on the internet!";
   }

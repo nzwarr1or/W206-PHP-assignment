@@ -15,6 +15,7 @@ function validate() {
     
     document.getElementById("form").submit();
     document.getElementById("form").reset();
+    
     return true;
   }
   return false;
@@ -84,12 +85,25 @@ function checkEmail() {
   return true;
 }
 
+//      ***** Check Date of Birth Validation *****
+
+function checkDateOfBirth() {
+  // Set variables
+  var dateOfBirth = document.getElementById('dateOfBirth').value;
+  // Check user has entered a value
+  if (dateOfBirth == "") {
+    document.getElementById('dateOfBirthMsg').innerHTML = "[JS]Required field";
+    return false; // Return a message to enter a value into the field
+  }
+  return true;
+}
+
 
 //      ***** Check Age Validation *****
 
 function checkAge() {
   // Set variables
-  age = document.getElementById('age').value;
+  var age = document.getElementById('age').value;
   // Check user has entered a value
   if (age == "") {
     document.getElementById('ageMsg').innerHTML = "[JS]Required field";
@@ -101,7 +115,7 @@ function checkAge() {
   }
   // Check to see if age is greater than 0
   else if (age < 0) {
-    document.getElementById('ageMsg').innerHTML = "[JS]Go back to the future!";    
+    document.getElementById('ageMsg').innerHTML = "[JS]You'll have to wait until you're born to fill out this form";    
     return false; // Return a message with character limits
   }
   // Check the age entered is less than 150 years
@@ -112,31 +126,17 @@ function checkAge() {
   return true;
 }
 
-
-//      ***** Check Date of Birth Validation *****
-
-function checkDateOfBirth() {
-  // Set variables
-  dateOfBirth = document.getElementById('dateOfBirth').value;
-  // Check user has entered a value
-  if (dateOfBirth == "") {
-    document.getElementById('dateOfBirthMsg').innerHTML = "[JS]Required field";
-    return false; // Return a message to enter a value into the field
-  }
-  return true;
-}
-
 // Set Materialize Date Picker range of 150 years and block future dates 
 
 var today = new Date();
 
 today.setFullYear( today.getFullYear() - 150 );
 $('.datepicker').pickadate({
-      selectMonths: true,
-      selectYears: 150,
-      format: 'dd/mm/yyyy',
-      min: today,
-      max: new Date()
+    selectMonths: true,
+    selectYears: 150,
+    format: 'dd/mm/yyyy',
+    min: today,
+    max: new Date()
 });
 
 
@@ -296,4 +296,5 @@ var vid = document.getElementById('bgVid');
 vid.addEventListener('ended', function() {showTitle()});
 function showTitle() {
 document.getElementById('title').style.visibility = "visible";
+
 }
