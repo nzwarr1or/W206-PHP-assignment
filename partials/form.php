@@ -1,11 +1,5 @@
-<?php
-
-require 'includes/functions.php';
-
-?>
-
 <!-- Header video background -->
-<video id="bgvid" playsinline autoplay muted>
+<video id="bgVid" playsinline autoplay muted>
  <source src="img/marvel-opening-sequence.mp4" type="video/mp4">
 </video><!-- end Header video -->
 
@@ -31,8 +25,7 @@ require 'includes/functions.php';
 <!-- Container for parallax image -->
 <div class="parallax-container">
     <div class="parallax"><img src="img/the-avengers.jpg"></div>
-</div> 
-
+</div>
   
 <!-- Outer div -->
 <div id="bg">
@@ -49,21 +42,21 @@ require 'includes/functions.php';
         <div class="row">
           <div class="input-field col s12 m8 l6">
             <i class="material-icons prefix">account_circle</i>
-            <input id="name" type="text"  data-length="40" onfocus="clearName()">
+            <input id="name" type="text" data-length="40" onfocus="clearName()" name="name" value="<?= !empty($name)?$name:''; ?>">
             <label for="name" class="active">Name</label>
           </div><br>
-          <div class="input-field col s12 m4 l4 error" id="nameMsg"></div>
+          <div class="input-field col s12 m4 l4 error" id="nameMsg"><?=!empty($error['name'])?$error['name']:'';?></div>
         </div><!-- end Name div -->
 
 
         <!-- Address div -->
         <div class="row">
           <div class="input-field col s12 m8 l6">
-            <i class="material-icons prefix">store</i>
-            <textarea type="text" id="address" name="address" placeholder="Enter your address" class="materialize-textarea" data-length="200" onfocus="clearAddress()"></textarea>
+            <i class="material-icons prefix">home</i>
+            <textarea type="text" id="address" name="address" placeholder="Enter your address" class="materialize-textarea" data-length="200" onfocus="clearAddress()"><?= !empty($address)?$address:''; ?></textarea>
             <label for="address" class="active">Address</label>
           </div><br><br>
-          <div class="input-field col s12 m4 l4 error" id="addressMsg"></div>
+          <div class="input-field col s12 m4 l4 error" id="addressMsg"><?=!empty($error['address'])?$error['address']:'';?></div>
         </div><!-- end Address div -->
         
 
@@ -71,10 +64,10 @@ require 'includes/functions.php';
         <div class="row">
           <div class="input-field col s12 m8 l6">
             <i class="material-icons prefix">email_circle</i>
-            <input id="email" type="email" data-length="100" onfocus="clearEmail()">
+            <input id="email" type="email" data-length="100" name="email" value="<?= !empty($email)?$email:''; ?>" onfocus="clearEmail()">
             <label for="email" class="active">Email</label>
           </div><br>
-          <div class="col s12 m4 l4 error" id="emailMsg"></div>
+          <div class="col s12 m4 l4 error" id="emailMsg"><?=!empty($error['email'])?$error['email']:'';?></div>
         </div><!-- end Email div -->
 
 
@@ -82,10 +75,10 @@ require 'includes/functions.php';
         <div class="row">
           <div class="input-field col s12 m8 l6">
             <i class="material-icons prefix">perm_contact_calendar</i>
-            <input type="date" name="dob" class="input-field datepicker" id="dateOfBirth" placeholder="Enter your Date of Birth" onfocus="clearDateOfBirth()">
-            <label for="dateOfBirth">Date of birth</label>
+            <input type="date" name="date" class="input-field datepicker" id="date" placeholder="Enter your Date of Birth" value="<?= !empty($date)?$date:''; ?>" onfocus="clearDateOfBirth()">
+            <label for="date">Date of birth</label>
           </div><br>
-          <div class="col s12 m4 l4 error" id="dateOfBirthMsg"></div>
+          <div class="col s12 m4 l4 error" id="dateOfBirthMsg"><?=!empty($error['date'])?$error['date']:'';?></div>
         </div><!-- end DOB div -->
 
 
@@ -93,10 +86,10 @@ require 'includes/functions.php';
         <div class="row">
           <div class="input-field col s2 m4 l2">
             <i class="material-icons prefix">hourglass_empty</i>
-            <input type="text" id="age" onfocus="clearAge()">
+            <input type="text" name="age" id="age" value="<?= !empty($age)?$age:''; ?>" onfocus="clearAge()">
             <label for="age" class="active">Age</label>
           </div><br>
-          <div class="input-field col s2 m4 l4 error" id="ageMsg"></div>
+          <div class="input-field col s2 m4 l4 error" id="ageMsg"><?=!empty($error['age'])?$error['age']:'';?></div>
         </div><!-- end Age div -->
 
 
@@ -104,7 +97,7 @@ require 'includes/functions.php';
         <div class="row">
           <div class="col s12 m12 l12">
             <!-- Gender label -->
-            <label class="active ">Select your Gender</label>
+            <label class="active">Select your Gender</label>
           </div><br>
         </div>
 
@@ -113,39 +106,38 @@ require 'includes/functions.php';
           <!-- Male radio button -->
           <div class="col s6 m3 l3">
             <i id="male-icon"><img src="img/male-icon.png"></i><br>
-            <input class="with-gap" name="gender" type="radio" id="male" onclick="clearGender()">
+            <input class="with-gap" name="gender" type="radio" id="male" onclick="clearGender()" <?php if (!empty($_POST['gender']) && $_POST['gender'] == 'Male') echo 'checked="checked"'; ?>>
             <label for="male">Male</label>
           </div>
 
           <!-- Female radio button -->
           <div class="col s6 m3 l3">
             <i id="female-icon"><img src="img/female-icon.png"></i><br>
-            <input class="with-gap" name="gender" type="radio" id="female" onclick="clearGender()">
+            <input class="with-gap" name="gender" type="radio" id="female" onclick="clearGender()" <?php if (!empty($_POST['gender']) && $_POST['gender'] == 'Female') echo 'checked="checked"'; ?>>
             <label for="female">Female</label>
           </div>
 
           <!-- Other gender radio button -->
           <div class="col s6 m3 l3">
             <span id="neutral-icon"><img src="img/neutral-icon.png"></span><br>
-            <input class="with-gap" name="gender" type="radio" id="other" onclick="clearGender()">
+            <input class="with-gap" name="gender" type="radio" id="other" onclick="clearGender()" <?php if (!empty($_POST['gender']) && $_POST['gender'] == 'Female') echo 'checked="checked"'; ?>>
             <label for="other">Other</label>
           </div><br>
-          <div class="input-field col s12 m3 l3 error" id="genderMsg"></div>
+          <div class="input-field col s12 m2 l2 error" id="genderMsg"><?=!empty($error['gender'])?$error['gender']:'';?></div>
         </div><br><!-- end Gender div -->
 
 
         <!-- Favourite Movie div -->
         <div class="row">
-          <div class="col s12 m12 l12">
+          <div class="col s12 m6 l6">
             <!-- Movie label --><i class="material-icons prefix">movie</i>
             <label class="active center">Marvel Movies</label>
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s10 m8 l8" id="movie" onmouseover="clearMovie()">
-            
+          <div class="input-field col s10 m8 l8">            
 
-            <select><!-- Drop down options for movies -->
+            <select onchange="clearMovie()" value="<?= !empty($movie)?$movie:''; ?>" id="movie"><!-- Drop down options for movies -->
               <option disabled selected>Pick your favourite Marvel movie</option>
               <option>Deadpool</option>
               <option>Fantastic Four</option>
@@ -161,7 +153,7 @@ require 'includes/functions.php';
               <option>Thor</option>
             </select>
           </div>
-          <div class="input-field col s2 m4 l4 error" id="movieMsg"></div>
+          <div class="input-field col s2 m4 l4 error" id="movieMsg"><?=!empty($error['movie'])?$error['movie']:'';?></div>
         </div><!-- end Favourite Movie div -->
 
 
@@ -169,7 +161,7 @@ require 'includes/functions.php';
         <div class="row center">
           <!-- Submit button -->
           <div class="col s12 offset-m2 m3 offset-l2 l2">
-            <button class="waves-effect waves-light btn" type="submit">Submit</button>
+            <button class="waves-effect waves-light btn" type="submit">Submit<i class="material-icons right">send</i></button>
           </div><!-- end Submit button -->
 
           <!-- Clear button -->

@@ -28,12 +28,12 @@ function checkName() {
   name = document.getElementById('name').value;
   // Check user has entered a value
   if (name == "") {
-    document.getElementById('nameMsg').innerHTML = "Required field";
+    document.getElementById('nameMsg').innerHTML = "[JS]Required field";
     return false; // Return a message to enter a value into the field
   }
   // Check name entered has less than 40 characters
   else if (name.length > 40) {
-    document.getElementById('nameMsg').innerHTML = "Maximum characters is 40";
+    document.getElementById('nameMsg').innerHTML = "[JS]Maximum characters is 40";
     return false; // Return a message with character limits
   }
   return true;
@@ -47,12 +47,12 @@ function checkAddress() {
   address = document.getElementById('address').value;
   // Check user has entered a value    
   if (address == "") {
-    document.getElementById('addressMsg').innerHTML = "Required field";
+    document.getElementById('addressMsg').innerHTML = "[JS]Required field";
     return false; // Return a message to enter a value into the field
   }
   // Check address entered has less than 200 characters
   else if (address.length > 200) {
-    document.getElementById('addressMsg').innerHTML = "Maximum characters is 200";
+    document.getElementById('addressMsg').innerHTML = "[JS]Maximum characters is 200";
     return false; // Return a message with character limits
   }
   return true;
@@ -68,17 +68,17 @@ function checkEmail() {
 
   // Check user has entered a value
   if (email == "") {
-    document.getElementById('emailMsg').innerHTML = "Required field";
+    document.getElementById('emailMsg').innerHTML = "[JS]Required field";
     return false; // Return a message to enter a value into the field
   }
   // Check email address entered has less than 200 characters
   else if (email.length > 100) {
-    document.getElementById('emailMsg').innerHTML = "Maximum characters is 100";
+    document.getElementById('emailMsg').innerHTML = "[JS]Maximum characters is 100";
     return false; // Return a message with character limits
   }
   // Test if the email address entered is valid
   else if (!filter.test(email)) {
-    document.getElementById('emailMsg').innerHTML = "Please re-enter a vaild email address";
+    document.getElementById('emailMsg').innerHTML = "[JS]Please re-enter a vaild email address";
     return false; // Return a message to enter a valid email address
   }
   return true;
@@ -92,21 +92,21 @@ function checkAge() {
   age = document.getElementById('age').value;
   // Check user has entered a value
   if (age == "") {
-    document.getElementById('ageMsg').innerHTML = "Required field";
+    document.getElementById('ageMsg').innerHTML = "[JS]Required field";
     return false; // Return a message to enter a value into the field
   }
   else if (isNaN(age)) {
-    document.getElementById('ageMsg').innerHTML = "Please enter your age as a <u>number</u>";
+    document.getElementById('ageMsg').innerHTML = "[JS]Please enter your age as a <u>number</u>";
     return false
   }
   // Check to see if age is greater than 0
   else if (age < 0) {
-    document.getElementById('ageMsg').innerHTML = "Go back to the future!";    
+    document.getElementById('ageMsg').innerHTML = "[JS]Go back to the future!";    
     return false; // Return a message with character limits
   }
   // Check the age entered is less than 150 years
   else if (age > 150) {
-    document.getElementById('ageMsg').innerHTML = "You are too old to be on the internet!";    
+    document.getElementById('ageMsg').innerHTML = "[JS]You are too old to be on the internet!";    
     return false; // Return a message with character limits
   }
   return true;
@@ -120,7 +120,7 @@ function checkDateOfBirth() {
   dateOfBirth = document.getElementById('dateOfBirth').value;
   // Check user has entered a value
   if (dateOfBirth == "") {
-    document.getElementById('dateOfBirthMsg').innerHTML = "Required field";
+    document.getElementById('dateOfBirthMsg').innerHTML = "[JS]Required field";
     return false; // Return a message to enter a value into the field
   }
   return true;
@@ -146,34 +146,47 @@ function checkGender() {
   var isMaleChecked = document.getElementById('male').checked;
   var isFemaleChecked = document.getElementById('female').checked;
   var isOtherChecked = document.getElementById('other').checked;
-  genderMsg="";
-
+  
   if (!isMaleChecked && !isFemaleChecked && !isOtherChecked) { 
     
-    document.getElementById('genderMsg').innerHTML = "Please select a gender";
+    document.getElementById('genderMsg').innerHTML = "[JS]Please select a gender";
     return false; // Return a message to select a radio button
     }
   return true;
 }
 
+// Icon to change color if selected
 
 var maleSelected = document.getElementById('male').checked;
-var FemaleSelected = document.getElementById('female').checked;
+var femaleSelected = document.getElementById('female').checked;
 var neutralSelected = document.getElementById('other').checked;
+
+function genderChange() {
+
+  if (maleSelected) {
+    document.getElementById('male-icon').innerHTML = "<img src='img/male-icon-red.png'>";
+  }
+  if (femaleSelected) {
+    document.getElementById('female-icon').innerHTML = "<img src='img/female-icon-red.png'>";
+  }
+  if (neutralSelected) {
+    document.getElementById('neutral-icon').innerHTML = "<img src='img/neutral-icon-red.png'>";
+  }
+}
 
 
 //      ***** Check Movie Validation *****
 
 function checkMovie() {
 
-  selectedMovie = document.getElementById('movie').selectedIndex;
+  var selectedMovie = document.getElementById('movie').selectedIndex;
 
-  if (selectedMovie < 0) {
-    document.getElementById('movieMsg').innerHTML = "Select a movie from the dropdown list";
-    return false;
+  if (selectedMovie > 0) {
+    return true;
     }
-  return true;
-}
+    document.getElementById('movieMsg').innerHTML = "[JS]Select a movie from the dropdown list";
+  return false;
+  }
 
 // Validate age
 
@@ -197,65 +210,18 @@ function checkMovie() {
 
 // Reset Form fields to default
 function resetForm() {
-document.getElementById("form").reset();
-}
-
-
-//      *****  Aesthetic Features  *****
-
-
-// Parallax function
-$(document).ready(function(){
-  $('.parallax').parallax();
-});
-
-//Materialize dropdown feature
-$(document).ready(function() {
+  document.getElementById("form").reset();
+  $('select').material_select('destroy');
   $('select').material_select();
-});
 
-$(document).ready(function() {
-  Materialize.updateTextFields();
-});
-
-
-
-// Smooth scrolling feature
-$(document).ready(function(){
-  // Add smooth scrolling to all links
-  $("a").on('click', function(event) {
-
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 2500, function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
-});
-
-
-// Show Title when intro video ends
-var vid = document.getElementById('bgVid');
-
-vid.addEventListener('ended', showTitle());
-  function showTitle() {
-    document.getElementById('title').style.visibility = "visible";
+  clearName()
+  clearAddress()
+  clearEmail()
+  clearDateOfBirth()
+  clearAge()
+  clearGender()
+  clearMovie()
 }
-
-
 
 // Clear Error message when data is reentered into field
 
@@ -292,4 +258,59 @@ function clearGender() {
 // Clear Movie error message
 function clearMovie() {
   document.getElementById("movieMsg").innerHTML = "";
+}
+
+
+//      *****  Aesthetic Features  *****
+
+
+// Parallax function
+$(document).ready(function(){
+  $('.parallax').parallax();
+});
+
+// //Materialize dropdown feature
+$(document).ready(function() {
+  $('select').material_select();
+});
+
+$(document).ready(function() {
+  Materialize.updateTextFields();
+});
+
+
+
+// Smooth scrolling feature
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 2200, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+
+
+// Show Title when intro video ends
+var vid = document.getElementById('bgVid');
+
+vid.addEventListener('ended', function() {showTitle()});
+function showTitle() {
+document.getElementById('title').style.visibility = "visible";
 }
