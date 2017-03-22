@@ -60,7 +60,7 @@ function validEmail($email) {
     return "[PHP]Maximum characters is 100"; 
   }
   // Test if the email address entered is valid
-  elseif (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+  elseif (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
     // Return a message to enter a valid email address
     return "[PHP]Please re-enter a vaild email address";
   }
@@ -68,35 +68,8 @@ function validEmail($email) {
 }
 
 
-//      ***** Check Age Validation *****
 
-function validAge($age) {
-  
-  // Check user has entered a value
-  if (empty($age)) {
-    // Return a message to enter a value into the field
-    return "[PHP]Required field"; 
-  }
-  // Check the age is a number
-  elseif (is_nan($age)) {
-  // Return a message to enter a number into the field
-    return "[PHP]Please enter your age as a <u>number</u>";
-  }
-  // Check to see if age is greater than 0
-  elseif (($age) < 0) {
-    // Return a message with character limits    
-    return "[PHP]Go back to the future!";
-  }
-  // Check the age entered is less than 150 years
-  else if (($age) > 150) {
-    // Return a message with character limits    
-    return "[PHP]You are too old to be on the internet!";
-  }
-  return false;
-}
-
-
-//      ***** Check Date of Birth Validation *****
+//     ***** Check Date of Birth Validation *****
 
 function validDateofBirth($date) {
     if (empty($date)) {
@@ -174,33 +147,53 @@ function checkDateManually($date) {
     return false;
 }
 
-// function validDateOfBirth($dateOfBirth) {
+
+//      ***** Check Age Validation *****
+
+function validAge($age) {
   
-//   // Check user has entered a value
-//   if (empty($dateOfBirth)) {
-//     // Return a message to enter a value into the field
-//     return "[PHP]Required field";
-//   }
-//   return false;
-// }
+  // Check user has entered a value
+  if (empty($age)) {
+    // Return a message to enter a value into the field
+    return "[PHP]Required field"; 
+  }
+  // Check the age is a number
+  elseif (is_nan($age)) {
+  // Return a message to enter a number into the field
+    return "[PHP]Please enter your age as a <u>number</u>";
+  }
+  // Check to see if age is greater than 0
+  elseif (($age) < 0) {
+    // Return a message with character limits    
+    return "[PHP]Go back to the future!";
+  }
+  // Check the age entered is less than 150 years
+  else if (($age) > 150) {
+    // Return a message with character limits    
+    return "[PHP]You are too old to be on the internet!";
+  }
+  return false;
+}
 
 
 //      ***** Check Gender Validation *****
 
 function validGender($gender) {
-  // Set variables
+
+  $selectedGender = $gender;
   
-  if (isMaleChecked && isFemaleChecked && isOtherChecked) { 
-    
-    // Return a message to select a radio button
-    return "[PHP]Please select a gender";
-    }
+  if(empty($selectedGender)){
+
+  return "[PHP]Select a gender";
+  }
   return false;
-}
+} 
 
 //      ***** Check Movie Validation *****
 
 function validMovie() {
+
+  
 
    if (empty($movie)) {
 

@@ -134,6 +134,7 @@ today.setFullYear( today.getFullYear() - 150 );
 $('.datepicker').pickadate({
       selectMonths: true,
       selectYears: 150,
+      format: 'dd/mm/yyyy',
       min: today,
       max: new Date()
 });
@@ -188,25 +189,6 @@ function checkMovie() {
   return false;
   }
 
-// Validate age
-
-// function getAge(dateString) {
-//     var today = new Date();
-//     var birthDate = new Date(dateString);
-//     var age = today.getFullYear() - birthDate.getFullYear();
-//     var m = today.getMonth() - birthDate.getMonth();
-//     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-//         age--;
-//     }
-//     return age;
-// }
-
-
-// function validateDate() {
-//     var dob = document.getElementById('date');
-//     document.getElementById('ageOutput').innerHTML = getAge(dob.value);
-// }
-
 
 // Reset Form fields to default
 function resetForm() {
@@ -222,6 +204,7 @@ function resetForm() {
   clearGender()
   clearMovie()
 }
+
 
 // Clear Error message when data is reentered into field
 

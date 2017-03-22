@@ -64,7 +64,7 @@
         <div class="row">
           <div class="input-field col s12 m8 l6">
             <i class="material-icons prefix">email_circle</i>
-            <input id="email" type="email" data-length="100" name="email" value="<?= !empty($email)?$email:''; ?>" onfocus="clearEmail()">
+            <input id="email"  data-length="100" name="email" value="<?= !empty($email)?$email:''; ?>" onfocus="clearEmail()">
             <label for="email" class="active">Email</label>
           </div><br>
           <div class="col s12 m4 l4 error" id="emailMsg"><?=!empty($error['email'])?$error['email']:'';?></div>
@@ -106,21 +106,21 @@
           <!-- Male radio button -->
           <div class="col s6 m3 l3">
             <i id="male-icon"><img src="img/male-icon.png"></i><br>
-            <input class="with-gap" name="gender" type="radio" id="male" onclick="clearGender()" <?php if (!empty($_POST['gender']) && $_POST['gender'] == 'Male') echo 'checked="checked"'; ?>>
+            <input class="with-gap" name="gender" type="radio" value="male" id="male" onclick="clearGender()"<?= ($gender == 'male')? ' checked': ''; ?>>
             <label for="male">Male</label>
           </div>
 
           <!-- Female radio button -->
           <div class="col s6 m3 l3">
             <i id="female-icon"><img src="img/female-icon.png"></i><br>
-            <input class="with-gap" name="gender" type="radio" id="female" onclick="clearGender()" <?php if (!empty($_POST['gender']) && $_POST['gender'] == 'Female') echo 'checked="checked"'; ?>>
+            <input class="with-gap" name="gender" type="radio" value="female" id="female" onclick="clearGender()" <?= ($gender == 'female')? ' checked': ''; ?>>
             <label for="female">Female</label>
           </div>
 
           <!-- Other gender radio button -->
           <div class="col s6 m3 l3">
             <span id="neutral-icon"><img src="img/neutral-icon.png"></span><br>
-            <input class="with-gap" name="gender" type="radio" id="other" onclick="clearGender()" <?php if (!empty($_POST['gender']) && $_POST['gender'] == 'Female') echo 'checked="checked"'; ?>>
+            <input class="with-gap" name="gender" type="radio" value="other" id="other" onclick="clearGender()" <?= ($gender == 'other')? ' checked': ''; ?>>
             <label for="other">Other</label>
           </div><br>
           <div class="input-field col s12 m2 l2 error" id="genderMsg"><?=!empty($error['gender'])?$error['gender']:'';?></div>
@@ -135,22 +135,22 @@
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s10 m8 l8">            
+          <div class="input-field col s10 m8 l8">
 
-            <select onchange="clearMovie()" value="<?= !empty($movie)?$movie:''; ?>" id="movie"><!-- Drop down options for movies -->
-              <option disabled selected>Pick your favourite Marvel movie</option>
-              <option>Deadpool</option>
-              <option>Fantastic Four</option>
-              <option>Dr Strange</option>
-              <option>Guardians of the Galaxy</option>
-              <option>Hulk</option>
-              <option>Iron Man</option>
-              <option>Captain America - Civil War</option>
-              <option>Logan</option>
-              <option>Spiderman</option>
-              <option>X2 - X-men United</option>
-              <option>The Avengers</option>
-              <option>Thor</option>
+            <select name="movies" onchange="clearMovie()" id="movie"><!-- Drop down options for movies -->
+              <option disabled <?= ($movies == '') ? ' selected' : ''; ?>>Pick your favourite Marvel movie</option>
+              <option value="Deadpool" <?= ($movies == 'Deadpool') ? ' selected' : ''; ?>>Deadpool</option>
+              <option value="Fantastic Four" <?= ($movies == 'Fantastic Four') ? ' selected' : ''; ?>>Fantastic Four</option>
+              <option value="Dr Strange" <?= ($movies == 'Dr Strange') ? ' selected' : ''; ?>>Dr Strange</option>
+              <option value="Guardians of the Galaxy" <?= ($movies == 'Guardians of the Galaxy') ? ' selected' : ''; ?>>Guardians of the Galaxy</option>
+              <option value="Hulk" <?= ($movies == 'Hulk') ? ' selected' : ''; ?>>Hulk</option>
+              <option value="Iron Man" <?= ($movies == 'Iron Man') ? ' selected' : ''; ?>>Iron Man</option>
+              <option value="Captain America - Civil War" <?= ($movies == 'Captain America - Civil War') ? ' selected' : ''; ?>>Captain America - Civil War</option>
+              <option value="Logan" <?= ($movies == 'Logan') ? ' selected' : ''; ?>>Logan</option>
+              <option value="Spiderman" <?= ($movies == 'Spiderman') ? ' selected' : ''; ?>>Spiderman</option>
+              <option value="X2 - X-men United" <?= ($movies == 'X2 - X-men United') ? ' selected' : ''; ?>>X2 - X-men United</option>
+              <option value="The Avengers" <?= ($movies == 'The Avengers') ? ' selected' : ''; ?>>The Avengers</option>
+              <option value="Thor" <?= ($movies == 'Thor') ? ' selected' : ''; ?>>Thor</option>
             </select>
           </div>
           <div class="input-field col s2 m4 l4 error" id="movieMsg"><?=!empty($error['movie'])?$error['movie']:'';?></div>

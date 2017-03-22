@@ -2,17 +2,12 @@
 
 require 'includes/functions.php';
 
-
+//define variables and set to empty values
+$name = $address = $email = $dob = $age = $gender = $movies = '';
+$error = [];
 
 //The request is using the POST method
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-	
-
-	
-	//define variables and set to empty values
-	$name = $address = $email = $dob = $age = $gender = $movies = '';
-	$error = [];
 
 	// Add data from form
 	$name = $_POST['name'];
@@ -20,6 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	$email = $_POST['email'];
 	$date = $_POST['date'];
 	$age = $_POST['age'];
+
+	//$gender = $_POST['gender'];
+	//$movies = $_POST['movies'];
 	$gender = !empty($_POST['gender'])?$_POST['gender'] : '';
 	$movies = !empty($_POST['movies'])?$_POST['movies'] : '';
 
@@ -30,6 +28,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	$error['age'] = validAge($age);
 	$error['gender'] = validGender($gender);
 	$error['movies'] = validMovie($movies);
+
+	if (!$error['name'] && !$error['address'] && !$error['email'] && !$error['age'] && !$error['date'] && !$error['movies'] && !$error['gender']) {
+
+		
+
+	}
 
 }
 
